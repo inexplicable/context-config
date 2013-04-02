@@ -11,11 +11,11 @@ install:
 .PHONY : test
 test: 
 	export NODE_PATH=./node_modules;\
-	node_modules/.bin/mocha test/*.js 
+	node_modules/.bin/mocha test/*.js --globals NODE_CONFIG
 
 test-part:
 	export NODE_PATH=./node_modules;\
-	node_modules/.bin/mocha test/*.js --reporter junit --output ../../reports
+	node_modules/.bin/mocha test/*.js --globals NODE_CONFIG --reporter junit --output ../../reports
 
 unpublish:
 	npm --registry $(REGISTRY) unpublish
