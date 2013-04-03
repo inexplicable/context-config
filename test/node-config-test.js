@@ -7,7 +7,7 @@ var EventEmitter = require("events").EventEmitter,
 
 
 // Trap all uncaught exception here.
-process.on('uncaughtException', function (error) {
+process.on("uncaughtException", function (error) {
     console.log(error.stack || error);
 });
 

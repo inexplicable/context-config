@@ -1,9 +1,9 @@
 'use strict';
 
 var _ = require("underscore"),
-    Q = require('q'),
-    ContextConfiguration = require('./context-configuration.js').ContextConfiguration,
-    ForwardConfiguration = require('./forward-configuration.js').ForwardConfiguration;
+    Q = require("q"),
+    ContextConfiguration = require("./context-configuration.js").ContextConfiguration,
+    ForwardConfiguration = require("./forward-configuration.js").ForwardConfiguration;
 
 var ConfigurationBuilder = module.exports = function(ref, emitter){
 

@@ -9,7 +9,7 @@ var Builder = require("../../app.js"),
 if(cluster.isMaster){
 
     var worker = cluster.fork();
-    worker.on('message', function(message){
+    worker.on("message", function(message){
         worker.send({
             "type":"config-read",
             "properties":[{
@@ -27,10 +27,10 @@ if(cluster.isMaster){
     });
 
     var timeOut = setTimeout(function(){
-        worker.process.kill('SIGTERM');
+        worker.process.kill("SIGTERM");
     }, 5000);
 
-    cluster.on('exit', function(worker, code, signal) {
+    cluster.on("exit", function(worker, code, signal) {
         console.log("success");
     });
 }

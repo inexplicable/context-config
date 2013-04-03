@@ -48,9 +48,9 @@ describe("Builder", function(){
     describe("message", function(){
 
         it("should work exactly the same in cluster environment using messaging", function(done){
-            var clusterTest = spawn("node", [process.cwd() + '/test/lib/app-cluster-test.js']);
-            clusterTest.stdout.setEncoding('utf8');
-            clusterTest.stderr.setEncoding('utf8');
+            var clusterTest = spawn("node", [process.cwd() + "/test/lib/app-cluster-test.js"]);
+            clusterTest.stdout.setEncoding("utf8");
+            clusterTest.stderr.setEncoding("utf8");
 
             clusterTest.stdout.on("data", function(data){
                 done();
