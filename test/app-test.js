@@ -3,7 +3,8 @@
 var EventEmitter = require("events").EventEmitter,
     Builder = require("../app.js"),
     cluster = require("cluster"),
-    should = require("should");
+    should = require("should"),
+    spawn = require("child_process").spawn;
 
 describe("Builder", function(){
 
@@ -47,46 +48,16 @@ describe("Builder", function(){
     describe("message", function(){
 
         it("should work exactly the same in cluster environment using messaging", function(done){
-            if(cluster.isMaster){
+            var clusterTest = spawn("node", [process.cwd() + '/test/lib/app-cluster-test.js']);
+            clusterTest.stdout.setEncoding('utf8');
+            clusterTest.stderr.setEncoding('utf8');
 
-                var worker = cluster.fork();
-                worker.on('message', function(message){
-                    worker.send({
-                        "type":"config-read",
-                        "properties":[{
-                                "key":"k1",
-                                "context": {"site":"en-US"},
-                                "value":"v3"
-                            }
-                            ,{
-                                "key":"k1",
-                                "context": {"site":"de-DE"},
-                                "value":"v4"
-                            }],
-                        "validContexts":["site"]
-                    });
-                });
-
-                var timeOut = setTimeout(function(){
-                    worker.process.kill('SIGTERM');
-                }, 5000);
-
-                cluster.on('exit', function(worker, code, signal) {
-                    done();
-                });
-            }
-            else{
-
-                var builder = new Builder({});
-                builder.build(function(config){
-                    should.exists(config);
-                    (config.get("k1")).should.equal("v3");
-                    done();
-
-                }, function(error){
-                    done(error);
-                });
-            }
+            clusterTest.stdout.on("data", function(data){
+                done();
+            });
+            clusterTest.stderr.on("data", function(data){
+                done(data);
+            });
         });
     });
 });
