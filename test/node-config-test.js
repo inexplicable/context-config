@@ -1,3 +1,5 @@
+'use strict';
+
 // Use nodeunit to run this
 var EventEmitter = require("events").EventEmitter,
     NodeConfig = require("../node-config.js").NodeConfig,

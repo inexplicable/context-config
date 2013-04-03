@@ -1,3 +1,5 @@
+'use strict';
+
 var ContextConfiguration = require("../context-configuration.js").ContextConfiguration,
     should = require("should");
 

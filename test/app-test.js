@@ -1,3 +1,5 @@
+'use strict';
+
 var EventEmitter = require("events").EventEmitter,
     Builder = require("../app.js"),
     cluster = require("cluster"),
