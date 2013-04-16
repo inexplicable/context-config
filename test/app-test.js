@@ -1,5 +1,5 @@
 var EventEmitter = require("events").EventEmitter,
-    Builder = require("../app.js"),
+    Builder = require("../lib/app.js"),
     cluster = require("cluster"),
     should = require("should");
 

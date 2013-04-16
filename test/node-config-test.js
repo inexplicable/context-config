@@ -1,6 +1,6 @@
 // Use nodeunit to run this
 var EventEmitter = require("events").EventEmitter,
-    NodeConfig = require("../node-config.js").NodeConfig,
+    NodeConfig = require("../lib/node-config.js").NodeConfig,
     Q = require("q"),
     should = require("should");
 

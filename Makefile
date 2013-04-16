@@ -5,7 +5,6 @@ clean:
 
 install:
 	npm install;\
-	npm link BitSet;\
 	npm link;
 
 .PHONY : test
