@@ -1,4 +1,5 @@
-// Use nodeunit to run this
+'use strict';
+
 var EventEmitter = require("events").EventEmitter,
     NodeConfig = require("../lib/node-config.js").NodeConfig,
     Q = require("q"),
@@ -6,7 +7,7 @@ var EventEmitter = require("events").EventEmitter,
 
 
 // Trap all uncaught exception here.
-process.on('uncaughtException', function (error) {
+process.on("uncaughtException", function (error) {
     console.log(error.stack || error);
 });
 

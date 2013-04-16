@@ -1,3 +1,5 @@
+'use strict';
+
 var ContextConfiguration = require("../lib/context-configuration.js").ContextConfiguration,
     should = require("should"),
     _ = require("underscore");
